@@ -1,0 +1,114 @@
+<br/>
+<br/>
+<br/><div style="width: 85%" class="container border border-grey py-3 mr">
+  <ul class="nav nav-tabs py-1" role="">
+    <li class="nav-item">
+      <a class="nav-link" href="#sdb" data-toggle="tab">
+        Source Database
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#ddb" data-toggle="tab">
+        Destination Database
+      </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#compare" data-toggle="tab">
+          Compare
+        </a>
+      </li>
+  </ul>
+  <div class="tab-content ">
+    <div id="sdb" class="tab-pane container">
+      <div class="card bg-kalyan">
+        <div class="card-body">
+          <div class="card-text">
+            <select>
+              <option disabled> Source Database </option>
+              <option *ngFor="let SDB of sourceDB"> {{SDB.name}} </option>
+            </select>
+            <br/>
+            <br/>
+            <select>
+              <option disabled> Table Name</option>
+            </select>
+          <br/>
+          <br/>
+            <label>Last Modified Start Date: </label>
+            <br/>
+            <input type="date" [(ngModel)]='sourceStartDate' />
+            <!-- <p>{{startDate}}</p> -->
+            <br/>
+            
+            <label>Last Modified End Date: </label>
+            <br>
+            <input type="date" [(ngModel)]='sourceEndDate' />
+            <!-- <p>{{endDate}}</p> -->
+        </div>
+        </div>
+      </div>
+    </div>
+    <div id="ddb" class="tab-pane container">
+      <div class="card bg-kumar">
+        <div class="card-body">
+          <select>
+            <option disabled> Destination Database </option>
+            <option *ngFor="let DDB of destinationDB"> {{DDB.name}} </option>
+          </select>
+          <br/>
+          <br/>
+          <select>
+            <option disabled> Table Name</option>
+          </select>
+          <br/>
+          <br/>
+          <label>Last Modified Start Date: </label>
+          <br>
+          <input type="date" [(ngModel)]='destinationStartDate' />
+          
+          <br/>
+          <label>Last Modified End Date: </label>
+          <br>
+          <input type="date" [(ngModel)]='destinationEndDate' />
+          
+         </div> 
+      </div>
+      <br>
+      <br>
+    </div>
+<!-- Ref codeee -->
+
+<div id="compare" class="tab-pane container">
+    <div class="card bg-krishna">
+      <div class="card-body">
+        <div class="card-text">
+          
+          <input type="submit" class="btn btn-success" (click)="getSourceCount();getDestinationCount() " value="Validate"/>
+          <br>
+         
+          <br>
+          <br/> Total cases present in Source Database:
+          <b class="border border-success bg-primary rounded px-1">{{casesCount.totalCases}} </b>
+          <br/>
+          Total cases present in Destination Database:
+          <b class="border border-success bg-primary rounded px-1">{{destinationCasesCount.totalCases}} </b>
+        <br/>
+        <br/>
+        <div>
+          <br/>
+          <br/>
+        <a href="mailto:someone@example.com?Subject=Failure%20records%20comparedfrom%20Source%20to%20Destination%20Database" target="_top">
+        <img src="../../assets/Angular-email.jpg" id="icon" alt="User Icon" height="40px" width="120px" class="float-left"/></a>
+      </div>
+        <br/>
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+</div>
